@@ -15,6 +15,9 @@ namespace BookWormWeb.Controllers
 
         public IActionResult Index()
         {
+            //if not indicated in brackets, returns the view with the name of action method,
+            //in this case - Index, from folder Views, next it's child folder with the same name as controller - Home.
+            //return View("Privacy") - will open Privacy page;
             return View();
         }
 

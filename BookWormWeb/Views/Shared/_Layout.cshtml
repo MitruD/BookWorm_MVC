@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @*"Title" => return value example: Privacy Policy, Home Page.*@
     <title>@ViewData["Title"] - BookWormWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -32,6 +34,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @*Displays whatever the controller will return *@
             @RenderBody()
         </main>
     </div>
@@ -47,3 +50,8 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+@*_Layout.cshtml - underscore prefix means that it's a partial view used throughout the web application. 
+
+How does the app kvow the _Layout.cshtml is the main? See for _ViewStart.cshtml*@
