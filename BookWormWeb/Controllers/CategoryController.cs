@@ -15,7 +15,7 @@ namespace BookWormWeb.Controllers
         {
             //Can be used "var" instead of List<Category>.
             List<Category> objCategoryList = _db.Categories.ToList();
-            return View();
+            return View(objCategoryList);
         }
     }
 }
