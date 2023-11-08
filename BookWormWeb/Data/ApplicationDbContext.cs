@@ -9,10 +9,10 @@ namespace BookWormWeb.Data
         {
 
         }
-        //Next Package Manager Console: update database - will create a database
+        //1.Next Package Manager Console: update database - will create a database
 
 
-        //PMC: add-migration Add Category table to db
+        //PMC: add-migration AddCategoryTableToDb => update-database
         public DbSet<Category> Categories { get; set; }
     }
 }
