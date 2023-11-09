@@ -10,11 +10,11 @@ namespace BookWormWeb.Models
 
         [Required]
         [DisplayName("Category Name")]
-        [MaxLength(30)]
+        [MaxLength(30)] //called: validation
         public string Name { get; set; }
 
         [DisplayName("Display Order")]
-        [Range(1, 100, ErrorMessage = "Display order must be between 1-100")]
+        [Range(1, 100, ErrorMessage = "Display order must be between 1-100")] 
         public int DisplayOrder { get; set; }
     }
 }

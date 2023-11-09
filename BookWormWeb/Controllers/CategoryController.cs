@@ -22,5 +22,21 @@ namespace BookWormWeb.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        //here create function the Category obj created in the model as a return type of the over Create function
+        public IActionResult Create(Category obj)
+        {
+            //Checkss with the validation from Model e.g. : Range, Required, MaxLength etc.. 
+            //if not valid return 
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Add(obj);
+                _db.SaveChanges();
+            return RedirectToAction("Index");
+            }
+            return View();
+            //return RedirectToAction("Index", "Category");
+        }
     }
 }

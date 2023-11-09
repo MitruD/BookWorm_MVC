@@ -1,12 +1,18 @@
 ﻿@model Category
 
-@*The model is category because the purpose of the Create controller is to add a new Category object.
-In controller we can explicitly mention the return object type, but it's not mandatory, by default it will be the model type. Managed by the framework.
+@*The model is Category because the purpose of the Create controller is to add a new Category object.
+In controller we can explicitly mention the return object type, but it's not mandatory, by default it will be of the model type. Managed by the framework.
 
  public IActionResult Create()
         {
             return View(new Category);
         }*@
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+
 <form method="post">
 
     <div class="border p-3 mt-4 ">
@@ -17,16 +23,22 @@ In controller we can explicitly mention the return object type, but it's not man
             <hr />
         </div>
         <div class="mb-3">
-            <label class="mb-2">Category name</label>
-            <input type="text" class="form-control"/>
+            @*when the tag helper "asp-for" value is the same for label and input, then clicking on label will highlight the input field*@
+            @*<label class="mb-2">Category Name</label>*@
+            <label asp-for="Name" class="mb-2"></label>
+            <input asp-for="Name" class="form-control" />
+            @*Displays validation error*@
+            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label class="mb-2">Display Order</label>
-            <input type="text" class="form-control"/>
+            @*<label  class="mb-2">Display Order</label>*@
+            <label asp-for="DisplayOrder" class="mb-2"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
         </div>
 
-        <div class="row">
-            <div class="col-6 col-md-3">
+        <div class="row pt-2">
+            <div class="col-6 col-md-3 ">
                 <button type="submit" class="btn btn-success form-control" @*style="width:150px"*@>Create</button>
             </div>
             <div class="col-6 col-md-3">
@@ -35,4 +47,12 @@ In controller we can explicitly mention the return object type, but it's not man
         </div>
     </div>
 </form>
+
+@*Client side validation, when not applyed it goes to server ch.44*@
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial.cshtml"/>
+    }
+}
 
