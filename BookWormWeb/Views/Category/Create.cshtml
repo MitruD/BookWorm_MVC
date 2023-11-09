@@ -1,0 +1,38 @@
+﻿@model Category
+
+@*The model is category because the purpose of the Create controller is to add a new Category object.
+In controller we can explicitly mention the return object type, but it's not mandatory, by default it will be the model type. Managed by the framework.
+
+ public IActionResult Create()
+        {
+            return View(new Category);
+        }*@
+<form method="post">
+
+    <div class="border p-3 mt-4 ">
+        <div class="row pb-2">
+            <h2 class="uppercase">
+                Create Category
+            </h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label class="mb-2">Category name</label>
+            <input type="text" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="mb-2">Display Order</label>
+            <input type="text" class="form-control"/>
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-success form-control" @*style="width:150px"*@>Create</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-info form-control">Back to List</a>
+            </div>
+        </div>
+    </div>
+</form>
+

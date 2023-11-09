@@ -13,9 +13,14 @@ namespace BookWormWeb.Controllers
         }
         public IActionResult Index()
         {
-            //Can be used "var" instead of List<Category>.
+            //Can be used "var" instead of List<Category>. More readable with List.
             List<Category> objCategoryList = _db.Categories.ToList();
             return View(objCategoryList);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
         }
     }
 }
