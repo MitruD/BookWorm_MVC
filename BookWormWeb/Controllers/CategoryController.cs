@@ -18,12 +18,13 @@ namespace BookWormWeb.Controllers
             return View(objCategoryList);
         }
 
+        //If no tags defined, then by default it's a GET action.
         public IActionResult Create()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost]  //POST action
         //here create function the Category obj created in the model as a return type of the over Create function
         public IActionResult Create(Category obj)
         {
@@ -37,6 +38,36 @@ namespace BookWormWeb.Controllers
             }
             return View();
             //return RedirectToAction("Index", "Category");
+        }
+        public IActionResult Edit(int? id)
+        {
+            if(id == null || id == 0)
+            {
+                return NotFound();
+            }
+            //Several ways to retrieve a Category
+            //1. Find(looks for Primary key)
+            Category? categoryFromDb = _db.Categories.Find(id);
+            //Category categoryFromDb = _db.Categories.FirstOrDefault(c => c.Id == id);FirstOrDefault works also with other parameters besides PK
+            //Category categoryFromDb = _db.Categories.Where(c => c.Id == id).FirstOrDefault(); same as FirstOrDefault
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Add(obj);
+                _db.SaveChanges();
+            return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }
