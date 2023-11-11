@@ -5,6 +5,10 @@ namespace BookWormWeb.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        //public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options): This is the constructor for the ApplicationDbContext class.
+        //It takes an instance of DbContextOptions<ApplicationDbContext> as a parameter.
+        //The : base(options) part calls the constructor of the base class (DbContext) with the provided options.
+        //The options typically include information about the database connection, such as the connection string.
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 

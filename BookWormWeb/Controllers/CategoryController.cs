@@ -35,9 +35,9 @@ namespace BookWormWeb.Controllers
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
             return RedirectToAction("Index");
+            //return RedirectToAction("Index", "Category");
             }
             return View();
-            //return RedirectToAction("Index", "Category");
         }
         public IActionResult Edit(int? id)
         {

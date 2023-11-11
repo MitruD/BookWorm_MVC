@@ -10,6 +10,9 @@ namespace BookWormWeb.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            //Is also an option to directly add SQL syntax: 
+            //migrationBuilder.Sql("DROP DATABASE [Categories]"); // <<< Anything you want :)
+
             migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
