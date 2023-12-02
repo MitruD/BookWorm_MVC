@@ -25,7 +25,7 @@ namespace BookWormWeb.Controllers
         }
 
         [HttpPost]  //POST action
-        //here create function the Category obj created in the model as a return type of the over Create function
+        // "Category obj" is place holder for @model "Category" obj created in the model as a return type of the GET Create method
         public IActionResult Create(Category obj)
         {
             //Checkss with the validation from Model e.g. : Range, Required, MaxLength etc.. 
@@ -56,6 +56,7 @@ namespace BookWormWeb.Controllers
             }
 
             return View(categoryFromDb);
+            //return RedirectToAction("Create", "Category");
         }
 
         [HttpPost]
